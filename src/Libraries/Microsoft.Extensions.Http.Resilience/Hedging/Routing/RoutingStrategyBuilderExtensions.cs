@@ -135,7 +135,10 @@ public static class RoutingStrategyBuilderExtensions
         return serviceProvider.GetRequiredService<INamedServiceProvider<IRequestRoutingStrategyFactory>>().GetRequiredService(routingName);
     }
 
-    internal static IRoutingStrategyBuilder ConfigureRoutingStrategy<TRoutingStrategyFactory, TRoutingStrategyOptions, TRoutingStrategyOptionsValidator>(
+    internal static IRoutingStrategyBuilder ConfigureRoutingStrategy<
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TRoutingStrategyFactory,
+        TRoutingStrategyOptions,
+        TRoutingStrategyOptionsValidator>(
         this IRoutingStrategyBuilder builder,
         Action<OptionsBuilder<TRoutingStrategyOptions>> configure)
         where TRoutingStrategyFactory : class, IRequestRoutingStrategyFactory

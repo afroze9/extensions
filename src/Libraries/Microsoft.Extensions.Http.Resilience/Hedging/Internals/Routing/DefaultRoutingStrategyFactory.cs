@@ -2,11 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.Extensions.Http.Resilience.Internal.Routing;
 
-internal sealed class DefaultRoutingStrategyFactory<TRoutingStrategy> : IRequestRoutingStrategyFactory
+internal sealed class DefaultRoutingStrategyFactory<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TRoutingStrategy> : IRequestRoutingStrategyFactory
     where TRoutingStrategy : IRequestRoutingStrategy
 {
     private readonly string _clientId;
